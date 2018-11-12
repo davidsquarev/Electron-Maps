@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="map.js"></script>
+    <script>if (window.module) module = window.module;</script>
+    <title>Map</title>
+    <link rel="stylesheet" type="text/css" href="mapStyle.css">
+  </head>
+  <body>
+    <nav>
+      <p id="hiddeButton" onclick="toggleHideBar()">Search Maps</p>
+      <p id="Estimate"></p>
+    </nav>
+  <div id="markerInfo"> 
+    <p> <img id="x" onclick="toggleMarkerInfo()" src='https://www.shareicon.net/download/2016/12/29/866470_notcorrect-sign-wrong-x_512x512.png'/> <b> Place Info </b> </p>
+    <hr>
+    <img id="markerIcon" src=""/>
+    <b> <p id="markerName"> </p> </b>
+    <p id="markerSets"> </p>
+
+  </div>
+  <div class="animateLeft" id="sideBar">
+     <input id="pac-input" class="controls" type="text" placeholder="Search Google Maps">
+     <button onclick="toggleExtra()">Show/Hide</button>
+     <button id ="clearButton" onclick="clearSearch()"> clearMarkers</button>
+     <br>
+     <hr> 
+    <div id="extraOptions"> 
+      <b> Find Route: </b> 
+      <br>
+      <b>Start: </b>
+      <input type="text" id="start" placeholder="Enter start">
+      <img onclick="removeStart()" id='x-start' src='https://www.shareicon.net/download/2016/12/29/866470_notcorrect-sign-wrong-x_512x512.png'/>
+      <b>End: </b>
+      <input type="text" id="end" placeholder="Enter destination">
+      <img id='x-end' src='https://www.shareicon.net/download/2016/12/29/866470_notcorrect-sign-wrong-x_512x512.png'/>
+        <select id="mode">
+        <option value="DRIVING">Driving</option>
+        <option value="WALKING">Walking</option>
+        <option value="TRANSIT">Transit</option>
+        <option value="BICYCLING">Bicycling</option>
+      </select>
+
+      <input type="button" id="press" value ="Find!">
+      <hr> 
+      <b> Save Route: </b>
+      <img id="saved-icon" src="https://d30y9cdsu7xlg0.cloudfront.net/png/14382-200.png">
+      <input style="width:100px"  type="text" id="name" placeholder ="Enter route name"> 
+      <input type="button" value="Save!" onclick="saveRoute()">
+    <hr> 
+    <b>Layers: </b>
+    <br> 
+    <img id="icon" src="https://cdn4.iconfinder.com/data/icons/transport-56/30/Traffic_Jam-512.png" value="Traffic" onclick="toggleTraffic()" title="Traffic"/>
+    <img id="icon" src="https://www.materialui.co/materialIcons/maps/directions_bus_grey_192x192.png" value="Transit" onclick="toggleTransit()">
+    <img id="icon" src="https://cdn2.iconfinder.com/data/icons/cycling/256/bike-fixed-gear-512.png" value="Bicycle" onclick="toggleBicycle()">
+    <hr> 
+    <b> <a href="#" id="make" onclick="loadSavedRoutes()">Saved Routes:</a> 
+     <!--  or <a href="#" id="make" onclick="loadSavedPlaces()">Places</a> : --></b>
+    <div id="savedRoutes"> </div>
+  </div>
+  </div>
+    <div id="map"></div> <br>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB37P8-JjkAgqSEs4M0eHX0vlNRjvTVbzU&libraries=places&callback=initMap"
+         async defer></script>
+  </body>
+</html>
