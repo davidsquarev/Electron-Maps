@@ -3,4 +3,5 @@ Electron app which utilizes Google Maps API. App was developed to help run trial
 To install:
 npm install electron
 To run:
-npm maps
+npm start
+
