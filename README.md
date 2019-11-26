@@ -5,3 +5,4 @@ npm install electron
 To run:
 npm start
 
+Images to showcase the application
