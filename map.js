@@ -28,8 +28,8 @@ Storage.prototype.getObj = function(key) {
  //localStorage.setObj(localStorage.length, newPlace);
  
 var pos = {
-  lat: 41.8781,
-  lng: -87.6298
+  lat: -38.132249,
+  lng: 144.827278
 };
 
 function initMap() {
@@ -50,7 +50,7 @@ function initMap() {
   bicycleLayer = new google.maps.BicyclingLayer();
   markers = [];
   var options = {
-    zoom: 15,
+    zoom: 8,
     center: pos,
     gestureHandling: 'greedy',
     minZoom: 2

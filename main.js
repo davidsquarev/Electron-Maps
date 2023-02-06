@@ -13,7 +13,12 @@ const {shell} = require('electron')
       width: 800, 
       height: 600,
       minHeight: 400,
-      minWidth: 600
+      minWidth: 600,    
+      webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: false,
+        enableRemoteModule: true,
+      },
     })
   
     // and load the index.html of the app.
